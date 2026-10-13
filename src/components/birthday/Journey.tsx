@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Heart, Music2, Pause, LockKeyhole, Sparkles, X, ChevronLeft, ChevronRight, Smile, CloudRain, Flame, MessageCircleHeart, RotateCcw, VolumeX } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Eye, EyeOff, Heart, Music2, Pause, LockKeyhole, Sparkles, X, ChevronLeft, ChevronRight, Smile, CloudRain, Flame, MessageCircleHeart, RotateCcw, VolumeX, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { pages, countdown, validPin, shuffleBoard, moveTile, isSolved } from '@/lib/birthday';
 import { letter } from '@/lib/letter';

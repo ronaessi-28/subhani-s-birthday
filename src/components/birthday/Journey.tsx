@@ -14,7 +14,11 @@ function Confetti() {
 }
 function Photo({ src, label }: { src: string; label: string }) {
   const [missing, setMissing] = useState(false);
-  return <div className="photo-slot">{missing ? <div className="photo-placeholder"><Heart /><span>{label}</span><span>A little space for your photo</span></div> : <img src={src} alt={label} loading="lazy" onError={() => setMissing(true)} />}</div>;
+  const img = useRef<HTMLImageElement>(null);
+  // A photo that already failed (cached 404) errors before React attaches its listener,
+  // so also inspect the element after mount to keep the honest empty frame.
+  useEffect(() => { const node = img.current; if (node?.complete && node.naturalWidth === 0) setMissing(true); }, [src]);
+  return <div className="photo-slot">{missing ? <div className="photo-placeholder"><Heart /><span>{label}</span><span>A little space for your photo</span></div> : <img ref={img} src={src} alt={label} loading="lazy" onError={() => setMissing(true)} />}</div>;
 }
 function Music() {
   const audio = useRef<HTMLAudioElement>(null);

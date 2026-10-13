@@ -31,10 +31,10 @@ export function moveTile(board: number[], index: number): number[] {
   next[empty] = tile;
   return next;
 }
-export function shuffleBoard(random: () => number = Math.random) {
+export function shuffleBoard(random: () => number = Math.random, steps = 12) {
   let board = [...solvedBoard];
   let previous = -1;
-  for (let step = 0; step < 60; step++) {
+  for (let step = 0; step < steps; step++) {
     const empty = board.indexOf(0);
     const options = board.map((_, index) => index).filter(index => index !== previous && moveTile(board, index) !== board);
     const pick = options[Math.floor(random() * options.length)] ?? options[0];

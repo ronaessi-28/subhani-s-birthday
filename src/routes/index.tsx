@@ -6,4 +6,4 @@ export const Route = createFileRoute('/')({
   head: () => pageHead(0),
   component: BirthdayPage,
 });
-function BirthdayPage() { return <Journey step=0 />; }
+function BirthdayPage() { return <Journey step={0} />; }

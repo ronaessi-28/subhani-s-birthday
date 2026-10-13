@@ -6,4 +6,4 @@ export const Route = createFileRoute('/every-mood')({
   head: () => pageHead(5),
   component: BirthdayPage,
 });
-function BirthdayPage() { return <Journey step=5 />; }
+function BirthdayPage() { return <Journey step={5} />; }

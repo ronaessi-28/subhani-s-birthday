@@ -6,4 +6,4 @@ export const Route = createFileRoute('/secret-pin')({
   head: () => pageHead(1),
   component: BirthdayPage,
 });
-function BirthdayPage() { return <Journey step=1 />; }
+function BirthdayPage() { return <Journey step={1} />; }

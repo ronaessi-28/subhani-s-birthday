@@ -6,4 +6,4 @@ export const Route = createFileRoute('/magical-gift')({
   head: () => pageHead(2),
   component: BirthdayPage,
 });
-function BirthdayPage() { return <Journey step=2 />; }
+function BirthdayPage() { return <Journey step={2} />; }

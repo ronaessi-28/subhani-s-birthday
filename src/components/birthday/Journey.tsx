@@ -34,7 +34,7 @@ function Continue({ step, children = 'A little more magic' }: { step: number; ch
 function Welcome() {
   const [escape, setEscape] = useState(0);
   const positions = [{ x: 0, y: 0 }, { x: 18, y: 56 }, { x: -120, y: 62 }, { x: -20, y: -46 }];
-  const pos = positions[escape % positions.length];
+  const pos = positions[escape % positions.length] ?? { x: 0, y: 0 };
   const runaway = () => setEscape(value => value + 1);
   return <><img src={envelope} width={1024} height={1024} className="welcome-art" alt="An open envelope with a soft pink heart" /><div className="eyebrow">A little surprise for my favorite person</div><h1 className="page-title">Hey, <em>Suhani!</em></h1><p className="page-subtitle">Today isn’t just another day.<br />It’s the day the world got a little more beautiful.</p><div className="script-note mt-3">And it’s all because of you ♡</div><p className="welcome-question">Ready for a little birthday magic?</p><div className="welcome-actions"><Button asChild className="romantic-button"><Link to="/secret-pin">Yes, I’m ready <Heart size={15} /></Link></Button><motion.div animate={pos}><Button variant="outline" className="romantic-button run-away" onPointerEnter={event => { if (event.pointerType === 'mouse') runaway(); }} onPointerDown={event => { event.preventDefault(); runaway(); }} onClick={runaway}>No, not yet</Button></motion.div></div><p className="quiet-note"><LockKeyhole />{escape ? 'Nice try… this surprise has your name on it ♡' : 'Just you, me, and a few little surprises.'}</p></>;
 }

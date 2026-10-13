@@ -24,7 +24,11 @@ export function moveTile(board: number[], index: number): number[] {
   const adjacent = Math.abs(Math.floor(index / 3) - Math.floor(empty / 3)) + Math.abs(index % 3 - empty % 3) === 1;
   if (!adjacent || index < 0 || index > 8) return board;
   const next = [...board];
-  [next[index], next[empty]] = [next[empty], next[index]];
+  const tile = next[index];
+  const blank = next[empty];
+  if (tile === undefined || blank === undefined) return board;
+  next[index] = blank;
+  next[empty] = tile;
   return next;
 }
 export function shuffleBoard(random: () => number = Math.random) {

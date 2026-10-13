@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BirthdayRouteImport } from './routes/birthday'
+import { Route as BirthdayPuzzleRouteImport } from './routes/birthday-puzzle'
+import { Route as EveryMoodRouteImport } from './routes/every-mood'
+import { Route as FinalSurpriseRouteImport } from './routes/final-surprise'
+import { Route as HerGalleryRouteImport } from './routes/her-gallery'
+import { Route as MagicalGiftRouteImport } from './routes/magical-gift'
+import { Route as MyLetterRouteImport } from './routes/my-letter'
+import { Route as OurGalleryRouteImport } from './routes/our-gallery'
+import { Route as SecretPinRouteImport } from './routes/secret-pin'
+import { Route as SevenReasonsRouteImport } from './routes/seven-reasons'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BirthdayRoute = BirthdayRouteImport.update({
+  id: '/birthday',
+  path: '/birthday',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BirthdayPuzzleRoute = BirthdayPuzzleRouteImport.update({
+  id: '/birthday-puzzle',
+  path: '/birthday-puzzle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EveryMoodRoute = EveryMoodRouteImport.update({
+  id: '/every-mood',
+  path: '/every-mood',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalSurpriseRoute = FinalSurpriseRouteImport.update({
+  id: '/final-surprise',
+  path: '/final-surprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HerGalleryRoute = HerGalleryRouteImport.update({
+  id: '/her-gallery',
+  path: '/her-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MagicalGiftRoute = MagicalGiftRouteImport.update({
+  id: '/magical-gift',
+  path: '/magical-gift',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyLetterRoute = MyLetterRouteImport.update({
+  id: '/my-letter',
+  path: '/my-letter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurGalleryRoute = OurGalleryRouteImport.update({
+  id: '/our-gallery',
+  path: '/our-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecretPinRoute = SecretPinRouteImport.update({
+  id: '/secret-pin',
+  path: '/secret-pin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SevenReasonsRoute = SevenReasonsRouteImport.update({
+  id: '/seven-reasons',
+  path: '/seven-reasons',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/birthday': typeof BirthdayRoute
+  '/birthday-puzzle': typeof BirthdayPuzzleRoute
+  '/every-mood': typeof EveryMoodRoute
+  '/final-surprise': typeof FinalSurpriseRoute
+  '/her-gallery': typeof HerGalleryRoute
+  '/magical-gift': typeof MagicalGiftRoute
+  '/my-letter': typeof MyLetterRoute
+  '/our-gallery': typeof OurGalleryRoute
+  '/secret-pin': typeof SecretPinRoute
+  '/seven-reasons': typeof SevenReasonsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/birthday': typeof BirthdayRoute
+  '/birthday-puzzle': typeof BirthdayPuzzleRoute
+  '/every-mood': typeof EveryMoodRoute
+  '/final-surprise': typeof FinalSurpriseRoute
+  '/her-gallery': typeof HerGalleryRoute
+  '/magical-gift': typeof MagicalGiftRoute
+  '/my-letter': typeof MyLetterRoute
+  '/our-gallery': typeof OurGalleryRoute
+  '/secret-pin': typeof SecretPinRoute
+  '/seven-reasons': typeof SevenReasonsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/birthday': typeof BirthdayRoute
+  '/birthday-puzzle': typeof BirthdayPuzzleRoute
+  '/every-mood': typeof EveryMoodRoute
+  '/final-surprise': typeof FinalSurpriseRoute
+  '/her-gallery': typeof HerGalleryRoute
+  '/magical-gift': typeof MagicalGiftRoute
+  '/my-letter': typeof MyLetterRoute
+  '/our-gallery': typeof OurGalleryRoute
+  '/secret-pin': typeof SecretPinRoute
+  '/seven-reasons': typeof SevenReasonsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/birthday'
+    | '/birthday-puzzle'
+    | '/every-mood'
+    | '/final-surprise'
+    | '/her-gallery'
+    | '/magical-gift'
+    | '/my-letter'
+    | '/our-gallery'
+    | '/secret-pin'
+    | '/seven-reasons'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/birthday'
+    | '/birthday-puzzle'
+    | '/every-mood'
+    | '/final-surprise'
+    | '/her-gallery'
+    | '/magical-gift'
+    | '/my-letter'
+    | '/our-gallery'
+    | '/secret-pin'
+    | '/seven-reasons'
+  id:
+    | '__root__'
+    | '/'
+    | '/birthday'
+    | '/birthday-puzzle'
+    | '/every-mood'
+    | '/final-surprise'
+    | '/her-gallery'
+    | '/magical-gift'
+    | '/my-letter'
+    | '/our-gallery'
+    | '/secret-pin'
+    | '/seven-reasons'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BirthdayRoute: typeof BirthdayRoute
+  BirthdayPuzzleRoute: typeof BirthdayPuzzleRoute
+  EveryMoodRoute: typeof EveryMoodRoute
+  FinalSurpriseRoute: typeof FinalSurpriseRoute
+  HerGalleryRoute: typeof HerGalleryRoute
+  MagicalGiftRoute: typeof MagicalGiftRoute
+  MyLetterRoute: typeof MyLetterRoute
+  OurGalleryRoute: typeof OurGalleryRoute
+  SecretPinRoute: typeof SecretPinRoute
+  SevenReasonsRoute: typeof SevenReasonsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/birthday': {
+      id: '/birthday'
+      path: '/birthday'
+      fullPath: '/birthday'
+      preLoaderRoute: typeof BirthdayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/birthday-puzzle': {
+      id: '/birthday-puzzle'
+      path: '/birthday-puzzle'
+      fullPath: '/birthday-puzzle'
+      preLoaderRoute: typeof BirthdayPuzzleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/every-mood': {
+      id: '/every-mood'
+      path: '/every-mood'
+      fullPath: '/every-mood'
+      preLoaderRoute: typeof EveryMoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/final-surprise': {
+      id: '/final-surprise'
+      path: '/final-surprise'
+      fullPath: '/final-surprise'
+      preLoaderRoute: typeof FinalSurpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/her-gallery': {
+      id: '/her-gallery'
+      path: '/her-gallery'
+      fullPath: '/her-gallery'
+      preLoaderRoute: typeof HerGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/magical-gift': {
+      id: '/magical-gift'
+      path: '/magical-gift'
+      fullPath: '/magical-gift'
+      preLoaderRoute: typeof MagicalGiftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-letter': {
+      id: '/my-letter'
+      path: '/my-letter'
+      fullPath: '/my-letter'
+      preLoaderRoute: typeof MyLetterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-gallery': {
+      id: '/our-gallery'
+      path: '/our-gallery'
+      fullPath: '/our-gallery'
+      preLoaderRoute: typeof OurGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/secret-pin': {
+      id: '/secret-pin'
+      path: '/secret-pin'
+      fullPath: '/secret-pin'
+      preLoaderRoute: typeof SecretPinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seven-reasons': {
+      id: '/seven-reasons'
+      path: '/seven-reasons'
+      fullPath: '/seven-reasons'
+      preLoaderRoute: typeof SevenReasonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BirthdayRoute: BirthdayRoute,
+  BirthdayPuzzleRoute: BirthdayPuzzleRoute,
+  EveryMoodRoute: EveryMoodRoute,
+  FinalSurpriseRoute: FinalSurpriseRoute,
+  HerGalleryRoute: HerGalleryRoute,
+  MagicalGiftRoute: MagicalGiftRoute,
+  MyLetterRoute: MyLetterRoute,
+  OurGalleryRoute: OurGalleryRoute,
+  SecretPinRoute: SecretPinRoute,
+  SevenReasonsRoute: SevenReasonsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

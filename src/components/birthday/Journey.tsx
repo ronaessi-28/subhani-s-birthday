@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Heart, Music2, Pause, LockKeyhole, Gift, Sparkles, X, ChevronLeft, ChevronRight, Smile, CloudRain, Flame, MessageCircleHeart, RotateCcw, VolumeX } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Heart, Music2, Pause, LockKeyhole, Sparkles, X, ChevronLeft, ChevronRight, Smile, CloudRain, Flame, MessageCircleHeart, RotateCcw, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { pages, countdown, validPin, shuffleBoard, moveTile, isSolved } from '@/lib/birthday';
 import { letter } from '@/lib/letter';
 import envelope from '@/assets/love-envelope.png';
 import cake from '@/assets/birthday-cake.jpg';
+import { GiftBox } from './GiftBox';
 
 function Confetti() {
   return <div className="confetti" aria-hidden="true">{Array.from({ length: 42 }, (_, i) => <span key={i} className="confetti-piece" style={{ left: `${(i * 37) % 100}%`, animationDelay: `${(i % 8) * .12}s` }} />)}</div>;
@@ -46,12 +47,12 @@ function Pin() {
 }
 function MagicalGift() {
   const [open, setOpen] = useState(false);
-  return <>{open && <Confetti />}<h1 className="page-title">A little box.<br /><em>A whole lot of love.</em></h1><p className="page-subtitle">Some things are too special to wrap in words.</p><motion.div animate={open ? { scale: [1, 1.2, 1], rotate: [0, -8, 8, 0] } : { rotate: [-3, 3, -3] }} transition={open ? { duration: .6 } : { duration: 3, repeat: Infinity }}><Button variant="ghost" className="gift-control" aria-label="Open your birthday gift" onClick={() => setOpen(true)}>{open ? <Heart /> : <Gift />}</Button></motion.div>{open ? <><p className="script-note">Surprise! A whole little world, made just for you ♡</p><Continue step={2}>Let’s celebrate you</Continue></> : <p className="script-note">This one has your name on it, Suhani ♡</p>}</>;
+  return <>{open && <Confetti />}<h1 className="page-title">A little box.<br /><em>A whole lot of love.</em></h1><p className="page-subtitle">Some things are too special to wrap in words.</p><motion.div animate={open ? { scale: [1, 1.2, 1], rotate: [0, -8, 8, 0] } : { rotate: [-3, 3, -3] }} transition={open ? { duration: .6 } : { duration: 3, repeat: Infinity }}><Button variant="ghost" className="gift-control" aria-label="Open your birthday gift" onClick={() => setOpen(true)}><GiftBox open={open} /></Button></motion.div>{open ? <><p className="script-note">Surprise! A whole little world, made just for you ♡</p><Continue step={2}>Let’s celebrate you</Continue></> : <p className="script-note">This one has your name on it, Suhani ♡</p>}</>;
 }
 function Birthday() {
   const [remaining, setRemaining] = useState<number[]>([]);
   useEffect(() => { const update = () => setRemaining(countdown(Date.now())); update(); const id = setInterval(update, 1000); return () => clearInterval(id); }, []);
-  return <><Confetti /><div className="eyebrow">October 14, 2026 · your beautiful new chapter</div><h1 className="page-title">Happy 24th,<br /><em>Suhani Jain!</em></h1><div className="script-note">24 looks beautiful on you ♡</div><img src={cake} className="cake-art" alt="Pink strawberry birthday cake with glowing candles" width={1024} height={1024} /><p className="page-subtitle">May your wishes be big, your worries small,<br />and this year your sweetest one yet. 🎈</p><div className="countdown" aria-label="Countdown to October 14, 2027">{['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => <div className="countdown-item" key={label}><strong>{remaining[index] === undefined ? '—' : String(remaining[index]).padStart(2, '0')}</strong><span>{label}</span></div>)}</div><p className="quiet-note">Until we celebrate you again · October 14, 2027</p><Continue step={3}>But first, a little more love</Continue></>;
+  return <><Confetti /><div className="birthday-balloons" aria-hidden="true"><span /><span /></div><div className="eyebrow">October 14, 2026 · your beautiful new chapter</div><h1 className="page-title">Happy 24th,<br /><em>Suhani Jain!</em></h1><div className="script-note">24 looks beautiful on you ♡</div><img src={cake} className="cake-art" alt="Pink strawberry birthday cake with glowing candles" width={1024} height={1024} /><p className="page-subtitle">May your wishes be big, your worries small,<br />and this year your sweetest one yet. 🎈</p><div className="countdown" aria-label="Countdown to October 14, 2027">{['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => <div className="countdown-item" key={label}><strong>{remaining[index] === undefined ? '—' : String(remaining[index]).padStart(2, '0')}</strong><span>{label}</span></div>)}</div><p className="quiet-note">Until we celebrate you again · October 14, 2027</p><Continue step={3}>But first, a little more love</Continue></>;
 }
 const portraitCaptions = ['That smile ♡', 'Simply, beautifully you', 'My favorite kind of sunshine', 'A little bit of magic', 'You, in all your loveliness', 'The sweetest soul', 'My favorite person'];
 function Gallery({ couple = false }: { couple?: boolean }) {

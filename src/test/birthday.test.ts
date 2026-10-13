@@ -31,5 +31,7 @@ describe('Birthday rules', () => {
     const board = [1, 2, 3, 4, 5, 6, 7, 0, 8];
     expect(isSolved(board)).toBe(false);
     expect(isSolved(moveTile(board, 8))).toBe(true);
+    expect(isSolved([])).toBe(false);
+    expect(isSolved([1, 2, 3])).toBe(false);
   });
 });

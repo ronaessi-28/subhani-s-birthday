@@ -18,7 +18,7 @@ export function countdown(now: number) {
   return [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
 }
 export const solvedBoard = [1, 2, 3, 4, 5, 6, 7, 8, 0];
-export function isSolved(board: number[]) { return board.every((value, i) => value === solvedBoard[i]); }
+export function isSolved(board: number[]) { return board.length === 9 && board.every((value, i) => value === solvedBoard[i]); }
 export function moveTile(board: number[], index: number): number[] {
   const empty = board.indexOf(0);
   const adjacent = Math.abs(Math.floor(index / 3) - Math.floor(empty / 3)) + Math.abs(index % 3 - empty % 3) === 1;

@@ -3,7 +3,7 @@ import { Link, useNavigate } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Eye, EyeOff, Heart, Music2, Pause, LockKeyhole, Sparkles, X, ChevronLeft, ChevronRight, Smile, CloudRain, Flame, MessageCircleHeart, RotateCcw, VolumeX, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { pages, countdown, validPin, shuffleBoard, moveTile, isSolved, solvedBoard } from '@/lib/birthday';
+import { pages, countdown, validPin, shuffleBoard, moveTile, isSolved, solvedBoard, hintMove } from '@/lib/birthday';
 import { letter } from '@/lib/letter';
 import envelope from '@/assets/love-envelope.png';
 import cake from '@/assets/birthday-cake.jpg';
@@ -107,18 +107,20 @@ function Puzzle() {
   const [elapsed, setElapsed] = useState(0);
   const [started, setStarted] = useState(false);
   const [peek, setPeek] = useState(false);
+  const [hint, setHint] = useState<number | null>(null);
   const solved = isSolved(board);
   useEffect(() => { setBoard(shuffleBoard()); }, []);
   useEffect(() => { if (!started || solved) return; const id = setInterval(() => setElapsed(value => value + 1), 1000); return () => clearInterval(id); }, [started, solved]);
   function play(index: number) {
     if (solved) return;
     const next = moveTile(board, index); if (next === board) return;
-    setStarted(true); setBoard(next); setMoves(value => value + 1);
+    setStarted(true); setBoard(next); setMoves(value => value + 1); setHint(null);
     if (isSolved(next)) sessionStorage.setItem('suhani-puzzle-solved', 'true');
   }
-  function restart() { setBoard(shuffleBoard()); setMoves(0); setElapsed(0); setStarted(false); }
+  function restart() { setBoard(shuffleBoard()); setMoves(0); setElapsed(0); setStarted(false); setHint(null); }
+  function showHint() { setHint(hintMove(board)); }
   function skip() { sessionStorage.setItem('suhani-puzzle-solved', 'true'); setBoard([...solvedBoard]); }
-  return <>{solved && <Confetti />}<h1 className="page-title">A little puzzle.<br /><em>A sweet surprise.</em></h1><p className="page-subtitle">One last piece of birthday magic, just for you.</p><div className="content-area puzzle-wrap"><div className="puzzle-stats"><span>{moves} moves</span><span>{Math.floor(elapsed / 60)}:{String(elapsed % 60).padStart(2, '0')}</span></div><div className="puzzle-board" aria-label="Birthday cake sliding puzzle">{peek && <img src={cake} alt="The finished picture — a little hint" className="puzzle-peek" />}{board.map((value, index) => value === 0 ? <div key="empty" className="puzzle-empty" aria-label="Empty space" /> : <Button key={value} variant="ghost" className="puzzle-tile" aria-label={`Move tile ${value}`} onClick={() => play(index)} style={{ backgroundImage: `url(${cake})`, backgroundPosition: `${((value - 1) % 3) * 50}% ${Math.floor((value - 1) / 3) * 50}%` }}><span className="puzzle-number">{value}</span></Button>)}</div><div className="mt-4 flex flex-wrap items-center justify-center gap-2"><Button variant="ghost" onClick={restart}><RotateCcw />Start again</Button><Button variant="ghost" onClick={() => setPeek(value => !value)} aria-pressed={peek}>{peek ? <EyeOff /> : <Eye />}{peek ? 'Hide the hint' : 'Peek at the picture'}</Button></div><p className="quiet-note mt-3">Little tip: the numbers show where each piece belongs — 1, 2, 3 on top, and the empty corner rests at the bottom right.</p><Button variant="ghost" className="mt-2 text-sm opacity-80" onClick={skip}><Wand2 />Too tricky? Skip to the surprise</Button></div>{solved ? <><p role="status" className="script-note mt-5">You did it, sweetheart! The surprise is yours ♡</p><Continue step={9}>Open your final surprise</Continue></> : <p className="quiet-note"><LockKeyhole />A little something is waiting on the other side.</p>}</>;
+  return <>{solved && <Confetti />}<h1 className="page-title">A little puzzle.<br /><em>A sweet surprise.</em></h1><p className="page-subtitle">One last piece of birthday magic, just for you.</p><div className="content-area puzzle-wrap"><div className="puzzle-stats"><span>{moves} moves</span><span>{Math.floor(elapsed / 60)}:{String(elapsed % 60).padStart(2, '0')}</span></div><div className="puzzle-board" aria-label="Birthday cake sliding puzzle">{peek && <img src={cake} alt="The finished picture — a little hint" className="puzzle-peek" />}{board.map((value, index) => value === 0 ? <div key="empty" className="puzzle-empty" aria-label="Empty space" /> : <Button key={value} variant="ghost" className={`puzzle-tile ${hint === index ? 'puzzle-hint' : ''}`} aria-label={`Move tile ${value}`} onClick={() => play(index)} style={{ backgroundImage: `url(${cake})`, backgroundPosition: `${((value - 1) % 3) * 50}% ${Math.floor((value - 1) / 3) * 50}%` }}><span className="puzzle-number">{value}</span></Button>)}</div><div className="mt-4 flex flex-wrap items-center justify-center gap-2"><Button variant="ghost" onClick={restart}><RotateCcw />Start again</Button><Button variant="ghost" onClick={() => setPeek(value => !value)} aria-pressed={peek}>{peek ? <EyeOff /> : <Eye />}{peek ? 'Hide the picture' : 'Peek at the picture'}</Button><Button variant="ghost" onClick={showHint}><Sparkles />Show me the next move</Button></div><p className="quiet-note mt-3">Little tip: the numbers show where each piece belongs — 1, 2, 3 on top, and the empty corner rests at the bottom right.</p><Button variant="ghost" className="mt-2 text-sm opacity-80" onClick={skip}><Wand2 />Too tricky? Skip to the surprise</Button></div>{solved ? <><p role="status" className="script-note mt-5">You did it, sweetheart! The surprise is yours ♡</p><Continue step={9}>Open your final surprise</Continue></> : <p className="quiet-note"><LockKeyhole />A little something is waiting on the other side.</p>}</>;
 }
 function Finale() {
   const [unlocked, setUnlocked] = useState(false);

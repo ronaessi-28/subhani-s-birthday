@@ -44,6 +44,32 @@ export function shuffleBoard(random: () => number = Math.random, steps = 12) {
   }
   return isSolved(board) ? moveTile(board, 7) : board;
 }
+export function hintMove(board: number[]): number | null {
+  if (isSolved(board)) return null;
+  const key = (state: number[]) => state.join('');
+  const queue: { state: number[]; first: number }[] = [];
+  const seen = new Set([key(board)]);
+  for (let index = 0; index < 9; index++) {
+    const next = moveTile(board, index);
+    if (next === board) continue;
+    if (isSolved(next)) return index;
+    seen.add(key(next));
+    queue.push({ state: next, first: index });
+  }
+  while (queue.length > 0) {
+    const { state, first } = queue.shift()!;
+    for (let index = 0; index < 9; index++) {
+      const next = moveTile(state, index);
+      if (next === state) continue;
+      if (isSolved(next)) return first;
+      const id = key(next);
+      if (seen.has(id)) continue;
+      seen.add(id);
+      queue.push({ state: next, first });
+    }
+  }
+  return null;
+}
 export function pageHead(index: number) {
   const page = pages[index] ?? pages[0];
   const title = `${page.label} · For Suhani, with love`;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BIRTHDAY_TARGET, countdown, isSolved, moveTile, shuffleBoard, solvedBoard, validPin } from '@/lib/birthday';
+import { BIRTHDAY_TARGET, countdown, hintMove, isSolved, moveTile, shuffleBoard, solvedBoard, validPin } from '@/lib/birthday';
 
 describe('Birthday rules', () => {
   it('accepts exactly PIN 143', () => {
@@ -33,5 +33,25 @@ describe('Birthday rules', () => {
     expect(isSolved(moveTile(board, 8))).toBe(true);
     expect(isSolved([])).toBe(false);
     expect(isSolved([1, 2, 3])).toBe(false);
+  });
+});
+describe('hintMove', () => {
+  it('returns null when already solved', () => {
+    expect(hintMove(solvedBoard)).toBeNull();
+  });
+  it('suggests a legal move that leads to a solution', () => {
+    const board = shuffleBoard();
+    const hint = hintMove(board);
+    expect(hint).not.toBeNull();
+    expect(moveTile(board, hint!)).not.toBe(board);
+  });
+  it('repeatedly following hints solves the puzzle', () => {
+    let board = shuffleBoard();
+    for (let step = 0; step < 60 && !isSolved(board); step++) {
+      const hint = hintMove(board);
+      expect(hint).not.toBeNull();
+      board = moveTile(board, hint!);
+    }
+    expect(isSolved(board)).toBe(true);
   });
 });

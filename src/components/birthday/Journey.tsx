@@ -106,6 +106,7 @@ function Puzzle() {
   const [moves, setMoves] = useState(0);
   const [elapsed, setElapsed] = useState(0);
   const [started, setStarted] = useState(false);
+  const [peek, setPeek] = useState(false);
   const solved = isSolved(board);
   useEffect(() => { setBoard(shuffleBoard()); }, []);
   useEffect(() => { if (!started || solved) return; const id = setInterval(() => setElapsed(value => value + 1), 1000); return () => clearInterval(id); }, [started, solved]);

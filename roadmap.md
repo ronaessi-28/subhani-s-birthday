@@ -3,3 +3,5 @@
 - [x] Implement PIN, gift, countdown, galleries, messages, letter, flip cards, and puzzle gate.
 - [x] Support supplied photo paths and optional music; document missing assets.
 - [x] Test rules and verify the complete journey on mobile and desktop.
+- [x] Document the exact filename and folder for each of the 19 photos and the song.
+- [ ] Place the 19 photos and optional song once the files are supplied (waiting on uploads).

@@ -16,7 +16,9 @@ npm run build
 
 ## Add your nineteen photos
 
-No personal photos were attached to the request. Until supplied, the galleries show honest empty photo frames, not stock replacements. Add the original photos to `public/images/`, preserving their order:
+No personal photos were attached to the request. Until supplied, the galleries show honest empty photo frames, not stock replacements. Add the original photos to `public/images/`, preserving their order — `public/images/README.md` lists all nineteen filenames with their captions, and `public/audio/README.md` covers the song:
+
+
 
 - Photos 1–7: `suhani-1.jpg` through `suhani-7.jpg`.
 - Photos 8–18: `couple-ghibli-1.jpg` through `couple-ghibli-11.jpg`.

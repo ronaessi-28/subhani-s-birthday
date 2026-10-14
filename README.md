@@ -14,15 +14,15 @@ npm run build
 
 `npm run test` runs the automated rule and routing checks. Built with React 19, TypeScript, Vite, Tailwind CSS v4, Framer Motion, and TanStack Start / TanStack Router (the project’s integrated router, rather than React Router). No account, paid API, or database is required.
 
-## Add your nineteen photos
+## Add your photos
 
-No personal photos were attached to the request. Until supplied, the galleries show honest empty photo frames, not stock replacements. Add the original photos to `public/images/`, preserving their order — `public/images/README.md` lists all nineteen filenames with their captions, and `public/audio/README.md` covers the song:
+Photos 1–7 (your portraits) and the birthday-page cake photo are already placed in the app. The rest — the eleven couple pictures and the final cake photo — can be sent through chat, or dropped into `public/images/` in order; `public/images/README.md` lists every filename with its caption, and `public/audio/README.md` covers the song. Any photo still missing shows an honest empty frame, never a stock replacement:
 
 
 
-- Photos 1–7: `suhani-1.jpg` through `suhani-7.jpg`.
-- Photos 8–18: `couple-ghibli-1.jpg` through `couple-ghibli-11.jpg`.
-- Photo 19: `us-birthday-cake.jpg`.
+- Photos 1–7: already placed (`suhani-1` … `suhani-7`).
+- Photos 8–18: `couple-ghibli-1.jpg` through `couple-ghibli-11.jpg` — still to add.
+- Photo 19: `us-birthday-cake.jpg` — still to add.
 
 Photos are displayed without altering faces. The “Ghibli-inspired” gallery uses the images you supply; no transformation is applied. The puzzle uses its own generated cake illustration, never a personal photo.
 

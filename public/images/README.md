@@ -2,7 +2,9 @@
 
 Drop the originals straight into this folder. Nothing is cropped, filtered, retouched or face-swapped; each file is shown as-is. The filename (not the file’s internal name or its position in a folder) decides which frame it lands in, so keep the numbers exactly as written below.
 
-## 1–7 · “My favorite kind of beautiful” (`/her-gallery`)
+**Already placed:** photos 1–7 (your seven portraits) and the birthday-page cake photo — both are in the app now, so you don’t need to send them again. **Still to add:** 8–18 and photo 19.
+
+## 1–7 · “My favorite kind of beautiful” (`/her-gallery`) — ✓ placed
 
 | Order | Filename | Caption shown |
 | --- | --- | --- |
@@ -14,7 +16,7 @@ Drop the originals straight into this folder. Nothing is cropped, filtered, reto
 | 6 | `suhani-6.jpg` | The sweetest soul |
 | 7 | `suhani-7.jpg` | My favorite person |
 
-## 8–18 · “You, me & a little magic” (`/our-gallery`)
+## 8–18 · “You, me & a little magic” (`/our-gallery`) — still to add
 
 | Order | Filename | Caption shown |
 | --- | --- | --- |
@@ -30,7 +32,7 @@ Drop the originals straight into this folder. Nothing is cropped, filtered, reto
 | 17 | `couple-ghibli-10.jpg` | Our little world · 10 |
 | 18 | `couple-ghibli-11.jpg` | Our little world · 11 |
 
-## 19 · Final surprise (`/final-surprise`)
+## 19 · Final surprise (`/final-surprise`) — still to add
 
 | Order | Filename | Caption shown |
 | --- | --- | --- |

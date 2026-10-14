@@ -84,7 +84,7 @@ function Gallery({ couple = false }: { couple?: boolean }) {
   const [selected, setSelected] = useState<number | null>(null);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const close = () => { const previous = selected; setSelected(null); if (previous !== null) refs.current[previous]?.focus(); };
-  const source = (index: number) => couple ? `/images/couple-ghibli-${index + 1}.jpg` : portraitPhotos[index] ?? `/images/suhani-${index + 1}.jpg`;
+  const source = (index: number) => couple ? couplePhotos[index] ?? `/images/couple-ghibli-${index + 1}.jpg` : portraitPhotos[index] ?? `/images/suhani-${index + 1}.jpg`;
   const caption = (index: number) => couple ? `Our little world · ${String(index + 1).padStart(2, '0')}` : portraitCaptions[index] ?? 'Beautiful you';
   useEffect(() => {
     if (selected === null) return;

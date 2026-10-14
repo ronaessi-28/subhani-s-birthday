@@ -7,6 +7,7 @@ import { pages, countdown, validPin, shuffleBoard, moveTile, isSolved, solvedBoa
 import { letter } from '@/lib/letter';
 import envelope from '@/assets/love-envelope.png';
 import cake from '@/assets/birthday-cake.jpg';
+import cakePhoto from '@/assets/birthday-cake-suhani.png.asset.json';
 import { GiftBox } from './GiftBox';
 
 function Confetti() {
@@ -56,7 +57,7 @@ function MagicalGift() {
 function Birthday() {
   const [remaining, setRemaining] = useState<number[]>([]);
   useEffect(() => { const update = () => setRemaining(countdown(Date.now())); update(); const id = setInterval(update, 1000); return () => clearInterval(id); }, []);
-  return <><Confetti /><div className="birthday-balloons" aria-hidden="true"><span /><span /></div><div className="eyebrow">October 14, 2026 · your beautiful new chapter</div><h1 className="page-title">Happy 24th,<br /><em>Suhani Jain!</em></h1><div className="script-note">24 looks beautiful on you ♡</div><img src={cake} className="cake-art" alt="Pink strawberry birthday cake with glowing candles" width={1024} height={1024} /><p className="page-subtitle">May your wishes be big, your worries small,<br />and this year your sweetest one yet. 🎈</p><div className="countdown" aria-label="Countdown to October 14, 2027">{['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => <div className="countdown-item" key={label}><strong>{remaining[index] === undefined ? '—' : String(remaining[index]).padStart(2, '0')}</strong><span>{label}</span></div>)}</div><p className="quiet-note">Until we celebrate you again · October 14, 2027</p><Continue step={3}>But first, a little more love</Continue></>;
+  return <><Confetti /><div className="birthday-balloons" aria-hidden="true"><span /><span /></div><div className="eyebrow">October 14, 2026 · your beautiful new chapter</div><h1 className="page-title">Happy 24th,<br /><em>Suhani Jain!</em></h1><div className="script-note">24 looks beautiful on you ♡</div><img src={cakePhoto.url} className="cake-art" alt="Suhani cutting a chocolate birthday cake with Happy Birthday and a red heart written on top" width={1214} height={1295} /><p className="page-subtitle">May your wishes be big, your worries small,<br />and this year your sweetest one yet. 🎈</p><div className="countdown" aria-label="Countdown to October 14, 2027">{['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => <div className="countdown-item" key={label}><strong>{remaining[index] === undefined ? '—' : String(remaining[index]).padStart(2, '0')}</strong><span>{label}</span></div>)}</div><p className="quiet-note">Until we celebrate you again · October 14, 2027</p><Continue step={3}>But first, a little more love</Continue></>;
 }
 const portraitCaptions = ['That smile ♡', 'Simply, beautifully you', 'My favorite kind of sunshine', 'A little bit of magic', 'You, in all your loveliness', 'The sweetest soul', 'My favorite person'];
 function Gallery({ couple = false }: { couple?: boolean }) {

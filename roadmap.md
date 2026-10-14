@@ -6,4 +6,5 @@
 - [x] Document the exact filename and folder for each of the 19 photos and the song.
 - [x] Place the cake photo you sent into the birthday chapter's framed picture.
 - [x] Place the seven portraits you sent into the "My favorite kind of beautiful" gallery.
-- [ ] Place the eleven couple photos, the final cake photo, and the song once the files are supplied (waiting on uploads).
+- [x] Place the ten couple photos you sent into gallery frames 8–17.
+- [ ] Place the eleventh couple photo (`couple-ghibli-11`), the final cake photo, and the song once the files are supplied (waiting on uploads).

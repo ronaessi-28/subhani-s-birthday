@@ -16,6 +16,17 @@ import suhani5 from '@/assets/suhani-5.png.asset.json';
 import suhani6 from '@/assets/suhani-6.webp.asset.json';
 import suhani7 from '@/assets/suhani-7.webp.asset.json';
 const portraitPhotos = [suhani1, suhani2, suhani3, suhani4, suhani5, suhani6, suhani7].map(asset => asset.url);
+import couple1 from '@/assets/couple-ghibli-1.webp.asset.json';
+import couple2 from '@/assets/couple-ghibli-2.webp.asset.json';
+import couple3 from '@/assets/couple-ghibli-3.webp.asset.json';
+import couple4 from '@/assets/couple-ghibli-4.webp.asset.json';
+import couple5 from '@/assets/couple-ghibli-5.webp.asset.json';
+import couple6 from '@/assets/couple-ghibli-6.webp.asset.json';
+import couple7 from '@/assets/couple-ghibli-7.webp.asset.json';
+import couple8 from '@/assets/couple-ghibli-8.webp.asset.json';
+import couple9 from '@/assets/couple-ghibli-9.webp.asset.json';
+import couple10 from '@/assets/couple-ghibli-10.webp.asset.json';
+const couplePhotos = [couple1, couple2, couple3, couple4, couple5, couple6, couple7, couple8, couple9, couple10].map(asset => asset.url);
 import { GiftBox } from './GiftBox';
 
 function Confetti() {
@@ -73,7 +84,7 @@ function Gallery({ couple = false }: { couple?: boolean }) {
   const [selected, setSelected] = useState<number | null>(null);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const close = () => { const previous = selected; setSelected(null); if (previous !== null) refs.current[previous]?.focus(); };
-  const source = (index: number) => couple ? `/images/couple-ghibli-${index + 1}.jpg` : portraitPhotos[index] ?? `/images/suhani-${index + 1}.jpg`;
+  const source = (index: number) => couple ? couplePhotos[index] ?? `/images/couple-ghibli-${index + 1}.jpg` : portraitPhotos[index] ?? `/images/suhani-${index + 1}.jpg`;
   const caption = (index: number) => couple ? `Our little world · ${String(index + 1).padStart(2, '0')}` : portraitCaptions[index] ?? 'Beautiful you';
   useEffect(() => {
     if (selected === null) return;

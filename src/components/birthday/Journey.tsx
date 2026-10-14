@@ -26,7 +26,9 @@ import couple7 from '@/assets/couple-ghibli-7.webp.asset.json';
 import couple8 from '@/assets/couple-ghibli-8.webp.asset.json';
 import couple9 from '@/assets/couple-ghibli-9.webp.asset.json';
 import couple10 from '@/assets/couple-ghibli-10.webp.asset.json';
-const couplePhotos = [couple1, couple2, couple3, couple4, couple5, couple6, couple7, couple8, couple9, couple10].map(asset => asset.url);
+import couple11 from '@/assets/couple-ghibli-11.png.asset.json';
+import usCake from '@/assets/us-birthday-cake.png.asset.json';
+const couplePhotos = [couple1, couple2, couple3, couple4, couple5, couple6, couple7, couple8, couple9, couple10, couple11].map(asset => asset.url);
 import { GiftBox } from './GiftBox';
 
 function Confetti() {

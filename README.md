@@ -16,12 +16,13 @@ npm run build
 
 ## Add your photos
 
-Photos 1–7 (your portraits) and the birthday-page cake photo are already placed in the app. The rest — the eleven couple pictures and the final cake photo — can be sent through chat, or dropped into `public/images/` in order; `public/images/README.md` lists every filename with its caption, and `public/audio/README.md` covers the song. Any photo still missing shows an honest empty frame, never a stock replacement:
+Photos 1–7 (your portraits), photos 8–17 (the first ten couple pictures), and the birthday-page cake photo are already placed in the app. The rest — the last couple picture and the final cake photo — can be sent through chat, or dropped into `public/images/` in order; `public/images/README.md` lists every filename with its caption, and `public/audio/README.md` covers the song. Any photo still missing shows an honest empty frame, never a stock replacement:
 
 
 
 - Photos 1–7: already placed (`suhani-1` … `suhani-7`).
-- Photos 8–18: `couple-ghibli-1.jpg` through `couple-ghibli-11.jpg` — still to add.
+- Photos 8–17: already placed (`couple-ghibli-1` … `couple-ghibli-10`).
+- Photo 18: `couple-ghibli-11.jpg` — still to add.
 - Photo 19: `us-birthday-cake.jpg` — still to add.
 
 Photos are displayed without altering faces. The “Ghibli-inspired” gallery uses the images you supply; no transformation is applied. The puzzle uses its own generated cake illustration, never a personal photo.

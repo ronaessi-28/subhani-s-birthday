@@ -15,7 +15,16 @@ import suhani4 from '@/assets/suhani-4.png.asset.json';
 import suhani5 from '@/assets/suhani-5.png.asset.json';
 import suhani6 from '@/assets/suhani-6.webp.asset.json';
 import suhani7 from '@/assets/suhani-7.webp.asset.json';
-const portraitPhotos = [suhani1, suhani2, suhani3, suhani4, suhani5, suhani6, suhani7].map(asset => asset.url);
+
+const portraitPhotos = [
+  '/images/suhani-1.png',
+  '/images/suhani-2.png',
+  '/images/suhani-3.png',
+  '/images/suhani-4.png',
+  '/images/suhani-5.png',
+  '/images/suhani-6.png',
+  '/images/suhani-7.png'
+];
 import couple1 from '@/assets/couple-ghibli-1.webp.asset.json';
 import couple2 from '@/assets/couple-ghibli-2.webp.asset.json';
 import couple3 from '@/assets/couple-ghibli-3.webp.asset.json';
@@ -28,7 +37,21 @@ import couple9 from '@/assets/couple-ghibli-9.webp.asset.json';
 import couple10 from '@/assets/couple-ghibli-10.webp.asset.json';
 import couple11 from '@/assets/couple-ghibli-11.png.asset.json';
 import usCake from '@/assets/us-birthday-cake.png.asset.json';
-const couplePhotos = [couple1, couple2, couple3, couple4, couple5, couple6, couple7, couple8, couple9, couple10, couple11].map(asset => asset.url);
+const couplePhotos = [
+  '/images/couple-ghibli-1.png',
+  '/images/couple-ghibli-2.png',
+  '/images/couple-ghibli-3.png',
+  '/images/couple-ghibli-4.png',
+  '/images/couple-ghibli-5.png',
+  '/images/couple-ghibli-6.png',
+  '/images/couple-ghibli-7.png',
+  '/images/couple-ghibli-8.png',
+  '/images/couple-ghibli-9.png',
+  '/images/couple-ghibli-10.png',
+  '/images/couple-ghibli-11.png'
+];
+
+
 import { GiftBox } from './GiftBox';
 
 function Confetti() {
